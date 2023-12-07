@@ -1,0 +1,10 @@
+streamlit
+joblib
+pandas
+nltk
+plotly-express
+seaborn
+matplotlib
+numpy
+Pillow
+streamlit-option-menu
