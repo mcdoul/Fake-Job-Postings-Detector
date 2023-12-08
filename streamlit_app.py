@@ -4,6 +4,7 @@ import pandas as pd
 import re
 from streamlit_option_menu import option_menu
 import nltk
+nltk.data.path.append('/path/to/nltk_data')
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 import plotly.express as px
