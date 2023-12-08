@@ -200,6 +200,20 @@ locations = [
     'SI', 'SK', 'SV', 'TH', 'TN', 'TR', 'TT', 'TW', 'UA', 'UG', 'US', 'VI', 'VN', 
     'ZA', 'ZM'
 ]
+stopwords = set([
+    "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours",
+    "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", 
+    "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves",
+    "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", 
+    "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", 
+    "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until",
+    "while", "of", "at", "by", "for", "with", "about", "against", "between", "into",
+    "through", "during", "before", "after", "above", "below", "to", "from", "up", "down",
+    "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here",
+    "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more",
+    "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so",
+    "than", "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"
+])
 
 
 def process_text(post):
@@ -246,7 +260,7 @@ def process_text(post):
             text = text.replace('\\r', ' ')
             text = text.replace('\\n', ' ')
             text = re.sub('[^A-Za-z0-9]+', ' ', text)
-            text = ' '.join(e for e in text.split() if e.lower() not in stopwords.words("English"))
+            text = ' '.join(e for e in text.split() if e.lower() not in stopwords)
             text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)  # Add a space before every uppercase letter that follows a lowercase
             # print('Added space before uppercase: ', text)
             text = text.lower()
